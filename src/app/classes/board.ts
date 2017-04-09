@@ -4,9 +4,10 @@ import { Move } from './move'
 export class Board {
     hasEnded: boolean;
     isValid: boolean;
+    validMoves: Move[];
+
     whiteTurn: boolean;
     cells: CellStatus[];
-    validMoves: Move[];
     whiteScore: number;
     blackScore: number;
     whiteWeightedScore: number;
@@ -27,8 +28,10 @@ export class Board {
                 CellStatus.emptyInvalidMove, CellStatus.emptyInvalidMove, CellStatus.emptyInvalidMove, CellStatus.emptyInvalidMove, CellStatus.emptyInvalidMove, CellStatus.emptyInvalidMove, CellStatus.emptyInvalidMove, CellStatus.emptyInvalidMove,
                 CellStatus.emptyInvalidMove, CellStatus.emptyInvalidMove, CellStatus.emptyInvalidMove, CellStatus.emptyInvalidMove, CellStatus.emptyInvalidMove, CellStatus.emptyInvalidMove, CellStatus.emptyInvalidMove, CellStatus.emptyInvalidMove
             ];
-            this.whiteScore = 0;
-            this.blackScore = 0;
+            this.whiteScore = 2;
+            this.blackScore = 2;
+            this.blackWeightedScore = 0;
+            this.whiteWeightedScore = 0;
             this.validMoves = [
                 new Move(false, 20, [20, 28, 36]),
                 new Move(false, 29, [29, 28, 27]),
