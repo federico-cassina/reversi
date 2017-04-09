@@ -1,11 +1,11 @@
 <md-grid-list cols='16' rowHeight='1:1'  gutterSize='4px' [style.background]="'lightblue'">
-    <md-grid-tile *ngFor="let pos of game.boards[game.play].cells | slice: 0:8" rowspan="1" colspan="1">
+    <md-grid-tile *ngFor="let pos of board.cells | slice: 0:8" rowspan="1" colspan="1">
                 {{pos}}
     </md-grid-tile>
     <md-grid-tile rowspan="8" colspan="8">
                 Bla
     </md-grid-tile>    
-    <md-grid-tile *ngFor="let pos of game.boards[game.play].cells | slice: 8:64" rowspan="1" colspan="1">
+    <md-grid-tile *ngFor="let pos of board.cells | slice: 8:64" rowspan="1" colspan="1">
                 {{pos}}
     </md-grid-tile>
 </md-grid-list>
