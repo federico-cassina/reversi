@@ -1,3 +1,18 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar color="primary">
+  <span>{{title}}</span>
+  <md-toolbar-row>
+      <button md-button routerLink='/board'>Play</button>
+      <button md-button routerLink='/score'>Scores</button>
+      <button md-button routerLink='/history'>Moves</button>
+  </md-toolbar-row>
+</md-toolbar>
+<md-sidenav-container>
+  <md-sidenav #sidenav mode="side" opened="true">
+    <md-list>
+      <h3 md-subheader>Games</h3>
+    </md-list>
+    <div>desdseede</div>
+  </md-sidenav> 
+  <router-outlet></router-outlet>
+</md-sidenav-container>   
+
