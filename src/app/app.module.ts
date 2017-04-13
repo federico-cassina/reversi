@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from '@angular/material';
+import { MaterialModule, MdSidenavModule } from '@angular/material';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
@@ -22,7 +22,7 @@ import { HistoryComponent } from './components/history/history.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
+    MaterialModule.forRoot(),
     RouterModule.forRoot([
       {
         path: 'board',
@@ -38,6 +38,7 @@ import { HistoryComponent } from './components/history/history.component';
       }
     ])
   ],
+  exports: [MaterialModule],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -3,6 +3,7 @@ import { Board } from '../../classes/board';
 import { Move } from '../../classes/move';
 import { GameService } from '../../services/game.service';
 
+
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -21,7 +22,7 @@ export class BoardComponent implements OnInit {
     this.diagnostics = "move " + move;
     for (var i = 0; i < this.board.validMoves.length; i++) {
       if (this.board.validMoves[i].cell == move) {
-        this.board = this.gameService.processMove(this.board.validMoves[move]);
+        this.board = this.gameService.processMove(this.board.validMoves[i]);
       }
     }
   }

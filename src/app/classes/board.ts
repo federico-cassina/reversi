@@ -71,6 +71,6 @@ export class Board {
     }
 
     hasValidMovesLeft(): boolean {
-        return this.validMoves.length > 0;
+        return this.validMoves? this.validMoves.length > 0 : false;
     }   
 }
