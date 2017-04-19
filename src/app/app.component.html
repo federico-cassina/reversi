@@ -1,22 +1,26 @@
-<md-sidenav-container>
-  <md-sidenav #sidenav mode="side" class="app-sidenav">
-    Sidenav
-  </md-sidenav>
+<div fxLayout="column" fxFlex>
   <md-toolbar color="primary">
-    <button class="app-icon-button" (click)="sidenav.toggle()">
-      <i class="material-icons">menu</i>
-    </button>
-    <h2>Reversi App, welcome players</h2>
-    <span class="app-toolbar-filler"></span>
+    <span>Reversi App, welcome players</span>
+    <span fxFlex></span>
+    <button md-button><md-icon class="tb-icon">autorenew</md-icon></button>
+    <button md-button><md-icon class="tb-icon">undo</md-icon></button>
+    <button md-button><md-icon class="tb-icon">help</md-icon></button>
   </md-toolbar>
-  <div class="app-content">
-    <md-card>
-        <button md-button routerLink='/board'>Play</button>
-        <button md-button routerLink='/score'>Scores</button>
-        <button md-button routerLink='/history'>Moves</button>
-    </md-card>
-    <md-card>
-      <router-outlet></router-outlet>
-    </md-card>
-  </div>
-</md-sidenav-container>
+  <md-sidenav-container fxFlex>
+    <md-sidenav mode="side" opened>
+      <md-tab-group>
+        <md-tab label="Score">
+          <app-score></app-score>
+        </md-tab>
+        <md-tab label="Settings">
+          <span>Settings</span>
+        </md-tab>
+      </md-tab-group>
+    </md-sidenav>
+    <div class="content" fxFlex>
+      <md-card>
+        <app-board></app-board>
+      </md-card>
+    </div>
+  </md-sidenav-container>
+</div>

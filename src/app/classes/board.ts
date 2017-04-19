@@ -13,7 +13,7 @@ export class Board {
     whiteWeightedScore: number;
     blackWeightedScore: number;
 
-    constructor(newGame?: boolean) {
+    constructor(newGame?: boolean, previous?: Board) {
         if (newGame) {
             this.hasEnded = false;
             this.isValid = true;
@@ -38,6 +38,17 @@ export class Board {
                 new Move(false, 34, [34, 35, 36]),
                 new Move(false, 43, [43, 35, 27])
             ];
+        } else {
+            this.cells = previous.cells.slice();
+            this.validMoves = [];
+            this.blackScore = 0;
+            this.whiteScore = 0;
+            this.whiteWeightedScore = 0;
+            this.blackWeightedScore = 0;
+            this.validMoves = [];
+            this.whiteTurn = !previous.whiteTurn;
+            this.hasEnded = false;
+            this.isValid = true;
         }
     }
 
@@ -58,6 +69,7 @@ export class Board {
     }
 
     nextTurn(): void {
+        console.log("NEXT! "+ this.whiteTurn + " to " + !this.whiteTurn);
         this.whiteTurn = !this.whiteTurn;
     }
 
@@ -71,6 +83,6 @@ export class Board {
     }
 
     hasValidMovesLeft(): boolean {
-        return this.validMoves? this.validMoves.length > 0 : false;
+        return this.validMoves.length > 0;
     }   
 }

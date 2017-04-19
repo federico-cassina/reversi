@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { MaterialModule, MdSidenavModule } from '@angular/material';
+
+// Just for materials
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MaterialModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
+
+
 import { BoardComponent } from './components/board/board.component';
 import { ScoreComponent } from './components/score/score.component';
 import { HistoryComponent } from './components/history/history.component';
@@ -22,7 +28,9 @@ import { HistoryComponent } from './components/history/history.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
+    FlexLayoutModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       {
         path: 'board',
@@ -38,7 +46,7 @@ import { HistoryComponent } from './components/history/history.component';
       }
     ])
   ],
-  exports: [MaterialModule],
+  exports: [MaterialModule, FlexLayoutModule],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MaterialModule } from '@angular/material';
+import { RouterModule } from '@angular/router';
 
 import { ScoreComponent } from './score.component';
 
@@ -8,6 +10,7 @@ describe('ScoreComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ MaterialModule, RouterModule ],
       declarations: [ ScoreComponent ]
     })
     .compileComponents();
