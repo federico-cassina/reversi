@@ -3,6 +3,7 @@ import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 
 import { BoardComponent } from './board.component';
+import { GameService } from '../../services/game.service';
 
 describe('BoardComponent', () => {
   let component: BoardComponent;
@@ -11,7 +12,8 @@ describe('BoardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ MaterialModule, RouterModule ],
-      declarations: [ BoardComponent ]
+      declarations: [ BoardComponent ],
+      providers: [ GameService ]
     })
     .compileComponents();
   }));

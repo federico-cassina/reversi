@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject }    from 'rxjs/Subject';
 import { Game } from '../classes/game';
 import { Move } from '../classes/move';
 import { Board } from '../classes/board';
@@ -10,13 +11,25 @@ export class GameService {
 
   game: Game;
 
+  private boardSource = new Subject<Board>();
+
+  currentBoard$ = this.boardSource.asObservable();
+
   constructor() { 
     this.game = new Game();
   }
 
   newGame(): Board {
     this.game = new Game();
+    this.boardSource.next(this.game.currentBoard());
     return this.game.currentBoard();
+  }
+
+  undoMove(): void {
+    this.game.boards.pop();
+    this.game.play--;
+    this.boardSource.next(this.game.currentBoard());
+    return;
   }
 
   currentGame(): Game {
@@ -112,6 +125,7 @@ export class GameService {
       this.game.boards.push(newBoard);
       this.checkGameOver(newBoard);
     }
+    this.boardSource.next(this.game.currentBoard());
     return newBoard;
   }
 

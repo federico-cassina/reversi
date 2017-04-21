@@ -5,15 +5,15 @@ import { Board } from '../../classes/board';
 @Component({
   selector: 'app-score',
   templateUrl: './score.component.html',
-  styleUrls: ['./score.component.css'],
-  providers: [GameService]
+  styleUrls: ['./score.component.css']
 })
 export class ScoreComponent implements OnInit {
 
-  service: GameService;
+  board: Board;
 
   constructor(private gameService: GameService) { 
-    this.service = gameService;
+    this.board = gameService.currentGame().currentBoard();
+    gameService.currentBoard$.subscribe(board => {this.board = board;});
   }
 
   ngOnInit() {

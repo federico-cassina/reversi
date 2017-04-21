@@ -2,23 +2,23 @@
   <h3 md-subheader>Score</h3>
   <md-list-item>
     <md-icon md-list-icon>radio_button_unchecked</md-icon>
-    <h4 md-line>{{service.currentGame().currentBoard().whiteScore}}</h4>
-    <p md-line> {{service.currentGame().currentBoard().whiteWeightedScore}}</p>
+    <h4 md-line>{{board.whiteScore}}</h4>
+    <p md-line> {{board.whiteWeightedScore}}</p>
   </md-list-item>
   <md-list-item>
     <md-icon md-list-icon>radio_button_checked</md-icon>
-    <h4 md-line>{{service.currentGame().currentBoard().blackScore}}</h4>
-    <p md-line> {{service.currentGame().currentBoard().blackWeightedScore}} </p>
+    <h4 md-line>{{board.blackScore}}</h4>
+    <p md-line> {{board.blackWeightedScore}} </p>
   </md-list-item>
   <md-divider></md-divider>
   <h3 md-subheader>Moving</h3>
   <md-list-item>
-    <md-icon *ngIf="service.currentGame().currentBoard().whiteTurn" md-list-icon>radio_button_unchecked</md-icon>
-    <md-icon *ngIf="!service.currentGame().currentBoard().whiteTurn" md-list-icon>radio_button_checked</md-icon>
+    <md-icon *ngIf="board.whiteTurn" md-list-icon>radio_button_unchecked</md-icon>
+    <md-icon *ngIf="!board.whiteTurn" md-list-icon>radio_button_checked</md-icon>
   </md-list-item>
   <md-divider></md-divider>
   <h3 md-subheader>Moves</h3>
-  <md-list-item *ngFor="let move of service.currentGame().currentBoard().validMoves">
+  <md-list-item *ngFor="let move of board.validMoves">
     <h4 md-line>{{move.cell}}</h4>
   </md-list-item>
 </md-list>

@@ -2,15 +2,15 @@
   <md-toolbar color="primary">
     <span>Reversi App, welcome players</span>
     <span fxFlex></span>
-    <button md-button><md-icon class="tb-icon">autorenew</md-icon></button>
-    <button md-button><md-icon class="tb-icon">undo</md-icon></button>
-    <button md-button><md-icon class="tb-icon">help</md-icon></button>
+    <button md-button (click)="newGame();"><md-icon class="tb-icon">autorenew</md-icon></button>
+    <button md-button (click)="undoMove();"><md-icon class="tb-icon">undo</md-icon></button>
+    <button md-button (click)="moveAI();"><md-icon class="tb-icon">help</md-icon></button>
   </md-toolbar>
   <md-sidenav-container fxFlex>
     <md-sidenav mode="side" opened>
       <md-tab-group>
         <md-tab label="Score">
-          <app-score></app-score>
+          <app-score #score></app-score>
         </md-tab>
         <md-tab label="Settings">
           <span>Settings</span>
@@ -19,7 +19,7 @@
     </md-sidenav>
     <div class="content" fxFlex>
       <md-card>
-        <app-board></app-board>
+        <app-board #game></app-board>
       </md-card>
     </div>
   </md-sidenav-container>

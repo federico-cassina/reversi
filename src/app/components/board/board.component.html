@@ -1,13 +1,13 @@
 <md-grid-list cols='8' rowHeight='1:1'  gutterSize='4px'>
-    <md-grid-tile *ngFor="let pos of board.cells; let i = index " rowspan="1" colspan="1">
+    <md-grid-tile *ngFor="let pos of board.cells; let i = index " rowspan="1" colspan="1" class="grey">
         <button md-fab *ngIf="pos==0" (click)="processMove(i)"> 
             <md-icon>location_searching</md-icon>
         </button>
-        <button md-fab *ngIf="pos==2" disabled>
-            <md-icon>radio_button_unchecked</md-icon>
-        </button>
-        <button md-fab *ngIf="pos==3" disabled>
-            <md-icon>radio_button_checked</md-icon>
-        </button>
+        <div *ngIf="pos==2">
+            <md-icon class="white">radio_button_checked</md-icon>
+        </div>
+        <div *ngIf="pos==3">
+            <md-icon class="black">radio_button_checked</md-icon>
+        </div>
     </md-grid-tile>
 </md-grid-list>
