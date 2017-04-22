@@ -26,9 +26,11 @@ export class GameService {
   }
 
   undoMove(): void {
-    this.game.boards.pop();
-    this.game.play--;
-    this.boardSource.next(this.game.currentBoard());
+    if (this.game.play > 0) {
+      this.game.boards.pop();
+      this.game.play--;
+      this.boardSource.next(this.game.currentBoard());
+    }
     return;
   }
 
@@ -140,11 +142,18 @@ export class GameService {
   moveAI() : Board {
     var bestMove: Move;
     var bestMoveScore = 0;
-    for (var i; i <  this.game.currentBoard().validMoves.length; i++) {
+    for (var i = 0; i < this.game.currentBoard().validMoves.length; i++) {
       var score = this.scoreMove(this.game.currentBoard().validMoves[i]);
-      bestMove = bestMove == null && score > bestMoveScore? this.game.currentBoard().validMoves[i] : bestMove;
+      if (bestMove == null || score >= bestMoveScore) {
+        bestMove = this.game.currentBoard().validMoves[i];
+        bestMoveScore = score;
+      }
     }
-    return this.processMove(bestMove);
+    if (bestMoveScore > 0) {
+      return this.processMove(bestMove);
+    } else {
+      return this.currentGame().currentBoard();
+    }
   }
 
 }

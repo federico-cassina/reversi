@@ -16,13 +16,15 @@ import { AppComponent } from './app.component';
 import { BoardComponent } from './components/board/board.component';
 import { ScoreComponent } from './components/score/score.component';
 import { HistoryComponent } from './components/history/history.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
     ScoreComponent,
-    HistoryComponent
+    HistoryComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
