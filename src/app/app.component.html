@@ -1,26 +1,27 @@
 <div fxLayout="column" fxFlex>
-  <md-toolbar color="primary">
+  <mat-toolbar color="primary">
     <span>Reversi App, welcome players</span>
     <span fxFlex></span>
-    <button md-button (click)="newGame();"><md-icon class="tb-icon">autorenew</md-icon></button>
-    <button md-button (click)="undoMove();"><md-icon class="tb-icon">undo</md-icon></button>
-    <button md-button (click)="moveAI();"><md-icon class="tb-icon">help</md-icon></button>
-  </md-toolbar>
-  <md-sidenav-container fxFlex>
-    <md-sidenav mode="side" opened>
-      <md-tab-group>
-        <md-tab label="Score">
+    <button mat-button (click)="newGame();"><mat-icon class="tb-icon">autorenew</mat-icon></button>
+    <button mat-button (click)="undoMove();"><mat-icon class="tb-icon">undo</mat-icon></button>
+    <button mat-button (click)="moveAI();"><mat-icon class="tb-icon">help</mat-icon></button>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlex>
+    <mat-sidenav mode="side" opened>
+      <mat-tab-group>
+        <mat-tab label="Score">
           <app-score #score></app-score>
-        </md-tab>
-        <md-tab label="Settings">
+        </mat-tab>
+        <mat-tab label="Settings">
           <app-settings></app-settings>
-        </md-tab>
-      </md-tab-group>
-    </md-sidenav>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-sidenav>
     <div class="content" fxFlex>
-      <md-card>
+      <mat-card>
         <app-board #game></app-board>
-      </md-card>
+      </mat-card>
     </div>
-  </md-sidenav-container>
+  </mat-sidenav-container>
 </div>

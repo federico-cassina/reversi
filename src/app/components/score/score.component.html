@@ -1,9 +1,9 @@
-<md-list>
-  <h3 md-subheader>Score</h3>
-  <md-list-item>
+<mat-list>
+  <h3 mat-subheader>Score</h3>
+  <mat-list-item>
     <div fxLayout="row" fxFill fxLayoutAlign="space-around center">
       <div fxFlex="20">
-        <md-icon md-list-icon class="white">radio_button_checked</md-icon>
+        <mat-icon mat-list-icon class="white">radio_button_checked</mat-icon>
       </div>
       <div fxFlex="40" fxLayout="column">
         <span>{{board.whiteScore}} (disks)</span>
@@ -12,11 +12,11 @@
         <span>{{board.whiteWeightedScore}} (weighted)</span>
       </div>
     </div>
-  </md-list-item>
-  <md-list-item>
+  </mat-list-item>
+  <mat-list-item>
     <div fxLayout="row" fxFill fxLayoutAlign="space-around center">
       <div fxFlex="20">
-        <md-icon md-list-icon class="black">radio_button_checked</md-icon>
+        <mat-icon mat-list-icon class="black">radio_button_checked</mat-icon>
       </div>
       <div fxFlex="40" fxLayout="column">
         <span>{{board.blackScore}} (disks)</span>
@@ -25,33 +25,33 @@
         <span>{{board.blackWeightedScore}} (weighted)</span>
       </div>
     </div>
-  </md-list-item>
+  </mat-list-item>
   <p></p>
-  <md-divider></md-divider>
-  <h3 *ngIf="!board.hasEnded" md-subheader>Moving</h3>
-  <md-list-item *ngIf="!board.hasEnded">
-    <md-icon *ngIf="board.whiteTurn" md-list-icon class="white">radio_button_checked</md-icon>
-    <md-icon *ngIf="!board.whiteTurn" md-list-icon class="black">radio_button_checked</md-icon>
-  </md-list-item>
-  <h3 *ngIf="board.hasEnded" md-subheader>Game Over!</h3>
-  <md-list-item *ngIf="board.hasEnded">
+  <mat-divider></mat-divider>
+  <h3 *ngIf="!board.hasEnded" mat-subheader>Moving</h3>
+  <mat-list-item *ngIf="!board.hasEnded">
+    <mat-icon *ngIf="board.whiteTurn" mat-list-icon class="white">radio_button_checked</mat-icon>
+    <mat-icon *ngIf="!board.whiteTurn" mat-list-icon class="black">radio_button_checked</mat-icon>
+  </mat-list-item>
+  <h3 *ngIf="board.hasEnded" mat-subheader>Game Over!</h3>
+  <mat-list-item *ngIf="board.hasEnded">
     <div *ngIf="board.whiteScore > board.blackScore" fxLayout="row" fxFill fxLayoutAlign="space-around center">
-      <md-icon md-list-icon class="white">radio_button_checked</md-icon>
+      <mat-icon mat-list-icon class="white">radio_button_checked</mat-icon>
       <span>White has won</span>
     </div>
     <div *ngIf="board.whiteScore < board.blackScore" fxLayout="row" fxFill fxLayoutAlign="space-around center">
-      <md-icon md-list-icon class="black">radio_button_checked</md-icon>
+      <mat-icon mat-list-icon class="black">radio_button_checked</mat-icon>
       <span>Black has won</span>
     </div>
     <div *ngIf="board.whiteScore == board.blackScore" fxLayout="row" fxFill fxLayoutAlign="space-around center">
-      <md-icon md-list-icon>drag_handle</md-icon>
+      <mat-icon mat-list-icon>drag_handle</mat-icon>
       <span>Draw</span>
     </div>
-  </md-list-item>
+  </mat-list-item>
   <p></p>
-  <md-divider></md-divider>
-  <h3 md-subheader>Moves</h3>
-  <md-list-item *ngFor="let move of board.validMoves">
-    <h4 md-line>{{move.cell}}</h4>
-  </md-list-item>
-</md-list>
+  <mat-divider></mat-divider>
+  <h3 mat-subheader>Moves</h3>
+  <mat-list-item *ngFor="let move of board.validMoves">
+    <h4 mat-line>{{move.cell}}</h4>
+  </mat-list-item>
+</mat-list>

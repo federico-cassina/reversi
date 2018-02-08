@@ -5,8 +5,9 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 // Just for materials
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatSlideToggleModule,
+  MatCardModule, MatButtonModule, MatGridListModule, MatListModule, MatDividerModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
 
@@ -30,9 +31,18 @@ import { SettingsComponent } from './components/settings/settings.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatCardModule,
+    MatButtonModule,
+    MatGridListModule,
+    MatListModule,
+    MatDividerModule,
+    MatSlideToggleModule,
     RouterModule.forRoot([
       {
         path: 'board',
@@ -48,7 +58,7 @@ import { SettingsComponent } from './components/settings/settings.component';
       }
     ])
   ],
-  exports: [MaterialModule, FlexLayoutModule],
+  exports: [FlexLayoutModule],
   providers: [],
   bootstrap: [AppComponent]
 })

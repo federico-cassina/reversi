@@ -1,7 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
-import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
-
+import { MatTabsModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatCardModule, MatButtonModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { BoardComponent } from './components/board/board.component';
 import { ScoreComponent } from './components/score/score.component';
@@ -13,7 +12,7 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ 
-        MaterialModule, 
+ 
         RouterModule.forRoot([
         {
           path: 'board',

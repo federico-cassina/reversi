@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
-
+import { MatGridListModule, MatIconModule } from '@angular/material';
 import { BoardComponent } from './board.component';
 import { GameService } from '../../services/game.service';
 
@@ -11,7 +10,7 @@ describe('BoardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ MaterialModule, RouterModule ],
+      imports: [ RouterModule ],
       declarations: [ BoardComponent ],
       providers: [ GameService ]
     })
