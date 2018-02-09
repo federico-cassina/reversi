@@ -43,6 +43,7 @@ export class GameService {
           start: number, color: CellStatus,  cells: CellStatus[]): number[] {
     let position = start;
     const visited: number[] = [ start ];
+    
     while (limit(position)) {
       position = next(position);
       if (cells[position] === CellStatus.emptyInvalidMove || cells[position] === CellStatus.emptyValidMove) {
