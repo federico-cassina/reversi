@@ -38,16 +38,18 @@ export class GameService {
     return this.game;
   }
 
-  private propagateOneDirection(limit: (p: number) => boolean, next: (o: number) => number, action: (m: number, c: CellStatus, v: number[], b: CellStatus[]) => number, start: number, color: CellStatus,  cells: CellStatus[]): number[] {
-    var position = start;
-    var visited: number[] = [ start ];
+  private propagateOneDirection(limit: (p: number) => boolean, next: (o: number) => number, 
+      action: (m: number, c: CellStatus, v: number[], b: CellStatus[]) => number, 
+          start: number, color: CellStatus,  cells: CellStatus[]): number[] {
+    let position = start;
+    const visited: number[] = [ start ];
     while (limit(position)) {
       position = next(position);
-      if (cells[position] == CellStatus.emptyInvalidMove || cells[position] == CellStatus.emptyValidMove) {
+      if (cells[position] === CellStatus.emptyInvalidMove || cells[position] === CellStatus.emptyValidMove) {
         break;
       }
       visited.push(position);
-      if (cells[position] == color) {
+      if (cells[position] === color) {
         if (visited.length > 2) {
           action(start, color, visited, cells);
           return visited;
@@ -115,8 +117,8 @@ export class GameService {
   }
 
   processMove(move: Move) : Board {
-    var previous = this.game.currentBoard();
-    var newBoard = new Board(false, previous);
+    let previous = this.game.currentBoard();
+    let newBoard = new Board(false, previous);
 
     if (!previous.isCellValidMove(move.cell)) {
       newBoard.invalidate();
@@ -133,17 +135,17 @@ export class GameService {
 
   private scoreMove(move: Move): number {
     var score = 0;
-    for (var cell in move.affected) {
+    for (let cell in move.affected) {
       score += WEIGHTS[cell];
     }
     return score;
   }
 
   moveAI() : Board {
-    var bestMove: Move;
-    var bestMoveScore = 0;
-    for (var i = 0; i < this.game.currentBoard().validMoves.length; i++) {
-      var score = this.scoreMove(this.game.currentBoard().validMoves[i]);
+    let bestMove: Move;
+    let bestMoveScore = 0;
+    for (let i = 0; i < this.game.currentBoard().validMoves.length; i++) {
+      let score = this.scoreMove(this.game.currentBoard().validMoves[i]);
       if (bestMove == null || score >= bestMoveScore) {
         bestMove = this.game.currentBoard().validMoves[i];
         bestMoveScore = score;
